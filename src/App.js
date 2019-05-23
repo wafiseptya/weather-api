@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +21,7 @@ class App extends Component {
           tempMin: `${data.main.temp_min}` ,
           tempMax: `${data.main.temp_max}` ,
           weather: `${data.weather[0].main}` ,
+          id: `${data.dt}` ,
 
         }
       )))
@@ -50,9 +51,9 @@ class App extends Component {
             <tbody>
               {
                 items.length > 0 ? items.map(item => {
-                  const {dateTime, temp, tempMax, tempMin, weather} = item;
+                  const {id, dateTime, temp, tempMax, tempMin, weather} = item;
                   return(
-                    <tr>
+                    <tr key={id}>
                       <th>{dateTime}</th>
                       <td>{temp}</td>
                       <td>{tempMax}</td>
